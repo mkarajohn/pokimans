@@ -8,3 +8,5 @@
 
 2. `npm install` 
 1. Follow the instructions from that branch
+
+![img](Screenshot.png)
