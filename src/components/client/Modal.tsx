@@ -37,7 +37,7 @@ export default function Modal({ children }: { children: ReactNode }) {
           <div className="max-w-sm">
             <Box>
               <div className="p-4">
-                !Try reloading the page and see the route interception in action!
+                Try reloading the page and see the route interception in action!
               </div>
             </Box>
           </div>
