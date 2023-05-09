@@ -1,6 +1,6 @@
 import LinksWrapper from '@/components/client/LinksWrapper';
 import Navigation from '@/components/Navigation';
-import PokidexListItem from '@/components/PokidexListItem';
+import PokidexEntry from '@/components/PokidexEntry';
 import { sanitizeForURL } from '@/utils/sanitise-for-url';
 import Link from 'next/link';
 
@@ -14,7 +14,9 @@ export default async function RootPage({ searchParams }: { searchParams: Record<
   return (
     /* @ts-expect-error Server Component */
     <LinksWrapper fromPage={currentPage}>
-      <Navigation currentPage={currentPage} next={!!next} previous={!!previous} />
+      <div className="fixed right-8 top-8">
+        <Navigation currentPage={currentPage} next={!!next} previous={!!previous} />
+      </div>
       <div className="flex flex-wrap gap-6">
         {results.map((pokiman: { name: string; url: string }) => {
           const id = pokiman.url.match(/\/(\d+)\/$/)?.[1];
@@ -24,16 +26,16 @@ export default async function RootPage({ searchParams }: { searchParams: Record<
               className="with-selection-arrow"
               key={pokiman.name}
               href={{
-                pathname: `/${sanitizeForURL(pokiman.name)}`,
+                pathname: `/entry/${sanitizeForURL(pokiman.name)}`,
+                query: searchParams,
               }}
             >
               {/* @ts-expect-error Server Component */}
-              <PokidexListItem id={id} />
+              <PokidexEntry id={id} />
             </Link>
           );
         })}
       </div>
-      <Navigation currentPage={currentPage} next={!!next} previous={!!previous} />
     </LinksWrapper>
   );
 }

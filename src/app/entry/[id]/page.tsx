@@ -1,4 +1,4 @@
-import PokidexListItem from '@/components/PokidexListItem';
+import PokidexEntry from '@/components/PokidexEntry';
 
 export default async function Page({
   params,
@@ -11,6 +11,6 @@ export default async function Page({
 
   return (
     /* @ts-expect-error Server Component */
-    <PokidexListItem key={params.id} id={id} flavourText={flavourText} />
+    <PokidexEntry key={params.id} id={id} flavourText={flavourText} />
   );
 }

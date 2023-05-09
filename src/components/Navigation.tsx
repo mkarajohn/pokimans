@@ -1,3 +1,4 @@
+import Box from '@/components/Box';
 import Link from 'next/link';
 
 function Navigation(props: { currentPage: string | null; next: boolean; previous: boolean }) {
@@ -7,16 +8,21 @@ function Navigation(props: { currentPage: string | null; next: boolean; previous
 
   return (
     <div className="flex gap-x-16">
-      {props.previous ? (
-        <Link className="with-selection-arrow" href={{ query: { page: prevPage } }}>
-          Previous page
+      <Box className="flex flex-col gap-4 p-4 uppercase">
+        <Link className="with-selection-arrow" href="/">
+          First page
         </Link>
-      ) : null}
-      {props.next ? (
-        <Link className="with-selection-arrow" href={{ query: { page: nextPage } }}>
-          Next page
-        </Link>
-      ) : null}
+        {props.previous ? (
+          <Link className="with-selection-arrow" href={{ query: { page: prevPage } }}>
+            Previous page
+          </Link>
+        ) : null}
+        {props.next ? (
+          <Link className="with-selection-arrow" href={{ query: { page: nextPage } }}>
+            Next page
+          </Link>
+        ) : null}
+      </Box>
     </div>
   );
 }
