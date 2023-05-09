@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .pokiball-decoration {
+    @apply h-0 w-0 rotate-45 rounded-full border-4 border-b-white border-l-black border-r-white border-t-black outline outline-[2px] outline-black;
+  }
+
+  .rect-decoration {
+    @apply h-2.5 w-3 border-2 border-solid border-black bg-white bg-gradient-to-b from-gray-400 via-white to-gray-400;
+  }
+
+  .with-selection-arrow {
+    @apply relative;
+  }
+
+  .with-selection-arrow:hover,
+  .with-selection-arrow:focus {
+    @apply before:absolute before:-left-3.5 before:top-[calc(50%-.4rem)] before:h-0 before:w-0 before:border-8 before:border-solid before:border-l-black before:border-transparent before:content-[''];
+  }
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb)))
+    rgb(var(--background-start-rgb));
+}
+
+@font-face {
+  font-family: PokimonGen1;
+  src: url('/public/fonts/pokemon_generation_1.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
