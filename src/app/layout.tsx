@@ -21,9 +21,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body className={`${inter.className} ${pokimonFont.className} min-h-screen px-24 py-12`}>
         <CurrentPageParam>
-          <div className="mb-12 flex justify-center">
+          <label className="mb-12 flex flex-col items-center justify-center gap-4">
+            <div>Search by name or Pokiman ID</div>
             <Search />
-          </div>
+          </label>
           {children}
         </CurrentPageParam>
       </body>
