@@ -14,7 +14,7 @@ function BackLink() {
         query: previousPage ? { page: previousPage } : {},
       }}
     >
-      Back
+      Close
     </Link>
   );
 }
