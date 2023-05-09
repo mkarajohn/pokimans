@@ -1,9 +1,10 @@
 ## Insructions
 
-Checkout the branch of your choosing
+1. Checkout the branch of your choosing
 
 * nextjs
 * vite
 * cra
 
-Follow the instructions from that branch
+2. `npm install` 
+1. Follow the instructions from that branch
