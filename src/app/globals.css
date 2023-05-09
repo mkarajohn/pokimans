@@ -16,7 +16,7 @@
   }
 
   .with-selection-arrow:hover,
-  .with-selection-arrow:focus {
+  .with-selection-arrow:focus-visible {
     @apply before:absolute before:-left-3.5 before:top-[calc(50%-.4rem)] before:h-0 before:w-0 before:border-8 before:border-solid before:border-l-black before:border-transparent before:content-[''];
   }
 }
