@@ -33,12 +33,12 @@ export default async function PokidexListItem({
             {id.padStart(3, '0')}
           </div>
         </div>
-        <div className="flex flex-col gap-2">
-          <h2 className="text-md uppercase">{capitalizeFirstLetter(pokiman.name)}</h2>
-          <div>
+        <div className="flex flex-col gap-2 overflow-hidden">
+          <h2 className="text-md truncate uppercase">{capitalizeFirstLetter(pokiman.name)}</h2>
+          <div className="truncate">
             <span>HT</span> <span>{Number(pokiman.height) / 10}m</span>
           </div>
-          <div>
+          <div className="truncate">
             <span>WT</span> <span>{Number(pokiman.weight) / 100}kg</span>
           </div>
         </div>
