@@ -6,7 +6,6 @@ import { ReactNode, useCallback, useEffect, useRef } from 'react';
 
 export default function Modal({ children }: { children: ReactNode }) {
   const overlay = useRef(null);
-  const wrapper = useRef(null);
   const router = useRouter();
 
   const onKeyDown = useCallback(
@@ -27,12 +26,12 @@ export default function Modal({ children }: { children: ReactNode }) {
       ref={overlay}
       className="fixed inset-0 z-10 mx-auto flex items-center justify-center bg-black/60"
       onClick={(e) => {
-        if (e.target === overlay.current || e.target === wrapper.current) {
+        if (e.target === overlay.current) {
           router.back();
         }
       }}
     >
-      <div ref={wrapper} className="flex flex-col items-center gap-4">
+      <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col gap-4">
           {children}
           <div className="max-w-sm">
