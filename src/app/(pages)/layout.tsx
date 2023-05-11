@@ -32,11 +32,11 @@ export default async function RootLayout({
   await applyMigrations();
 
   return (
-    <html lang="en">
-      <body className={`${inter.className} ${pokimonFont.className} min-h-screen`}>
+    <html lang="en" className="min-h-screen">
+      <body className={`${inter.className} ${pokimonFont.className}`}>
         <SessionProvider>
           <CurrentPageParam>
-            <Box padded className="sticky top-1 z-40 m-1">
+            <Box padded className="sticky top-1 z-40 m-1 mb-0">
               <nav className="flex items-center gap-4">
                 <h1 className="shrink-0 text-4xl">
                   <Link href="/">Pokidex</Link>
@@ -49,7 +49,7 @@ export default async function RootLayout({
                 </div>
               </nav>
             </Box>
-            <main className="flex flex-col items-center justify-between gap-4 p-12">
+            <main className="flex flex-col items-center justify-between gap-4 p-8">
               {children}
               {modal}
             </main>
