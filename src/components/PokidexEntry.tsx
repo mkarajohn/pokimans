@@ -10,13 +10,12 @@ export default async function PokidexEntry({
   flavourText?: string;
 }) {
   const resp = await fetch(`http://localhost:3000/api/pokimans/${id}`);
-
   const pokiman = await resp.json();
 
   return (
     <div className={`${flavourText ? 'max-w-sm' : 'w-80'}`}>
-      <Box>
-        <div className="flex bg-gray-100 p-4">
+      <Box padded={!flavourText}>
+        <div className={`flex bg-gray-100 ${flavourText ? 'p-4' : ''}`}>
           <div className={`mr-8 flex flex-col items-center ${flavourText ? '' : 'justify-end'}`}>
             <Image
               priority

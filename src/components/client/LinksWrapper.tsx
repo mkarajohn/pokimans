@@ -1,6 +1,6 @@
 'use client';
 
-import { useCurrentPageParam } from '@/app/providers/CurrentPageParam';
+import { useCurrentPageParam } from '@/providers/CurrentPageParam';
 import { ReactNode, useEffect } from 'react';
 
 function LinksWrapper(props: { children: ReactNode; fromPage: string | null }) {

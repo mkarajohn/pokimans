@@ -10,7 +10,7 @@ function BackLink() {
 
   return (
     <Link
-      className="with-selection-arrow inline-flex self-start uppercase"
+      className="action"
       href={{
         pathname: '/',
         // query: previousPage ? { page: previousPage } : {},

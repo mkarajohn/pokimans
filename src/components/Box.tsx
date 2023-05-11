@@ -1,13 +1,21 @@
 import { ReactNode } from 'react';
 
-function Box(props: { children: ReactNode; className?: string }) {
+function Box({
+  children,
+  className,
+  padded = false,
+}: {
+  children: ReactNode;
+  className?: string;
+  padded?: boolean;
+}) {
   return (
     <div
-      className={`relative border-[5px] border-double border-black bg-gray-100 ${
-        props.className || ''
-      }`}
+      className={`relative flex flex-col gap-4 border-[5px] border-double border-black bg-gray-100 ${
+        padded ? 'p-4' : ''
+      } ${className || ''}`}
     >
-      {props.children}
+      {children}
       <span
         className="pokiball-decoration absolute -left-[.4rem] -top-[.4rem]"
         role="presentation"
