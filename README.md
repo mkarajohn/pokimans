@@ -2,14 +2,27 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, you will need Postgres running on :5432 with a database `pokimansdb`.
+
+If you are using docker you can run 
+```
+docker run --name postgres-pokimans -d -p 5432:5432 -e POSTGRES_PASSWORD=postgres postgres
+``` 
+and then enter the container terminal and create the database like so
+
+```postgresql
+# psql -u postgres
+CREATE DATABASE pokimansdb;
+```
+
+After you have finished with the above steps, you can install the project dependencies using `npm install`.
+
+Migrations should apply after you install the project dependencies, assuming your Postgres server is running.
+
+Then, run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
