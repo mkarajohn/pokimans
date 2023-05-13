@@ -1,7 +1,7 @@
 'use client';
 
+import SignInButton from '@/components/client/SignInButton';
 import UserMenu from '@/components/client/UserMenu';
-import SignInButton from '@/components/SignInButton';
 import { useSession } from 'next-auth/react';
 
 function LoginLogout() {

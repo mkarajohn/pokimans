@@ -9,7 +9,7 @@ export default async function PokidexEntry({
   id: string;
   flavourText?: string;
 }) {
-  const resp = await fetch(`http://localhost:3000/api/pokimans/${id}`);
+  const resp = await fetch(`${process.env.HOST}/api/pokimans/${id}`);
   const pokiman = await resp.json();
 
   return (

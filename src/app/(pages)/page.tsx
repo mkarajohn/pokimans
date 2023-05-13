@@ -8,7 +8,7 @@ export default async function RootPage({ searchParams }: { searchParams: Record<
   const urlSearchParams = new URLSearchParams(searchParams);
   const currentPage = urlSearchParams.get('page');
 
-  const resp = await fetch('http://localhost:3000/api/pokimans?' + urlSearchParams.toString());
+  const resp = await fetch(`${process.env.HOST}/api/pokimans?${urlSearchParams.toString()}`);
   const { results, next, previous } = await resp.json();
 
   return (

@@ -6,8 +6,6 @@ async function main() {
   console.log('Applying migrations...');
 
   applyMigrations();
-
-  console.log('Migrations applied');
 }
 
 void main();

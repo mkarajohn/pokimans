@@ -15,6 +15,20 @@
       "when": 1683767755441,
       "tag": "0001_dazzling_wither",
       "breakpoints": false
+    },
+    {
+      "idx": 2,
+      "version": "5",
+      "when": 1684012318471,
+      "tag": "0002_yielding_warlock",
+      "breakpoints": false
+    },
+    {
+      "idx": 3,
+      "version": "5",
+      "when": 1684012384003,
+      "tag": "0003_panoramic_ezekiel_stane",
+      "breakpoints": false
     }
   ]
 }
