@@ -23,6 +23,10 @@
   .action {
     @apply with-selection-arrow inline-flex self-start uppercase;
   }
+
+  .no-cursor {
+    @apply before:content-none !important
+  }
 }
 
 :root {

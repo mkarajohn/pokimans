@@ -1,5 +1,5 @@
+import AddToFavourites from '@/components/AddToFavourites';
 import Box from '@/components/Box';
-import AddToFavourites from '@/components/client/AddToFavourites';
 import BackLink from '@/components/client/BackLink';
 
 function PokidexActions() {

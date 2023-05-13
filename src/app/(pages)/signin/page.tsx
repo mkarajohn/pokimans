@@ -18,7 +18,8 @@ export default async function Page() {
           <h1 className="mb-8 text-center text-2xl font-medium tracking-tight text-gray-900">
             Sign in to your account
           </h1>
-          <div className="sm:rounded-5xl  flex-auto text-center sm:flex-none">
+          <p className="mb-6">Signing in will allow you to save Pokimans in your favourites list</p>
+          <div className="flex-auto text-center sm:flex-none">
             <form className="flex flex-col gap-4">
               <div>Sign in with your email</div>
               <input
@@ -29,8 +30,13 @@ export default async function Page() {
                 placeholder="hello@me.com"
                 autoComplete="email"
                 required
+                disabled
               />
-              <button type="submit" className="action mx-4 mt-3 w-full text-gray-400" disabled>
+              <button
+                type="submit"
+                className="action no-cursor mx-4 mt-3 w-full text-gray-400"
+                disabled
+              >
                 Continue with email
               </button>
             </form>

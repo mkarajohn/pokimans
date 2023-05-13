@@ -1,10 +1,13 @@
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import '@/app/globals.css';
 import Box from '@/components/Box';
 import Search from '@/components/client/Search';
-import SignInButton from '@/components/client/SignInButton';
+import UserMenu from '@/components/client/UserMenu';
+import SignInButton from '@/components/SignInButton';
 import { applyMigrations } from '@/db/db';
 import { CurrentPageParam } from '@/providers/CurrentPageParam';
 import SessionProvider from '@/providers/SessionProvider';
+import { getServerSession } from 'next-auth/next';
 import { Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import Link from 'next/link';
@@ -24,12 +27,14 @@ export const metadata = {
 
 export default async function RootLayout({
   children,
-  modal,
+  interceptors,
 }: {
   children: ReactNode;
-  modal: ReactNode;
+  interceptors: ReactNode;
 }) {
   await applyMigrations();
+
+  const session = await getServerSession(authOptions);
 
   return (
     <html lang="en" className="min-h-screen">
@@ -44,14 +49,15 @@ export default async function RootLayout({
                 <div className="grow">
                   <Search />
                 </div>
+                {/*<LoginLogout />*/}
                 <div className="shrink-0">
-                  <SignInButton />
+                  {session ? <UserMenu session={session} /> : <SignInButton />}
                 </div>
               </nav>
             </Box>
             <main className="flex flex-col items-center justify-between gap-4 p-8">
               {children}
-              {modal}
+              {interceptors}
             </main>
           </CurrentPageParam>
         </SessionProvider>
