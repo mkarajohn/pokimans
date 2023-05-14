@@ -9,7 +9,7 @@ async function Page() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    redirect('/signin?callbackUrl=/account');
+    redirect('/signin?callbackUrl=/account/favourites');
   }
 
   try {
