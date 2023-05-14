@@ -5,6 +5,7 @@ import { Menu, Transition } from '@headlessui/react';
 import { Session } from 'next-auth';
 import { signOut } from 'next-auth/react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 function UserMenu({ session }: { session: Session }) {
   return (
@@ -37,7 +38,7 @@ function UserMenu({ session }: { session: Session }) {
       >
         <Menu.Items className="!absolute right-0 z-30 mt-1 flex origin-top-right shadow-lg focus:outline-none">
           <Box padded>
-            <div className="mb-4 flex gap-4 px-6 text-sm">
+            <div className="mb-4 flex gap-4 px-4 text-sm">
               {session.user?.image ? (
                 <div className="relative h-10 w-10">
                   <Image
@@ -63,21 +64,15 @@ function UserMenu({ session }: { session: Session }) {
                 <p className="text-stone-400">{session.user?.email}</p>
               </div>
             </div>
-            {/*<Menu.Item>*/}
-            {/*  {({ active }) => (*/}
-            {/*    <Link*/}
-            {/*      href='/profile'*/}
-            {/*      className={`inline-flex items-center gap-6 px-[34px] py-2 text-sm text-stone-400 dark:text-stone-500 ${active && 'bg-stone-700/50 dark:bg-stone-200'}`}*/}
-            {/*    >*/}
-            {/*      <Cog8ToothIcon className='h-5 w-5 text-stone-400' />*/}
-            {/*      <span>Manage Account</span>*/}
-            {/*    </Link>*/}
-            {/*  )}*/}
-            {/*</Menu.Item>*/}
+            <Menu.Item>
+              <Link href="/account/favourites" className="action mx-4">
+                Favourites
+              </Link>
+            </Menu.Item>
             <Menu.Item>
               <button
                 type="button"
-                className="action relative mx-8"
+                className="action relative mx-4"
                 onClick={() => {
                   signOut({ redirect: true });
                 }}

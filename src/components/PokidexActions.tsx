@@ -1,12 +1,15 @@
-import AddToFavourites from '@/components/AddToFavourites';
+import { authOptions } from '@/app/api/auth/[...nextauth]/route';
 import Box from '@/components/Box';
+import AddToFavourites from '@/components/client/AddToFavourites';
 import BackLink from '@/components/client/BackLink';
+import { getServerSession } from 'next-auth/next';
 
-function PokidexActions() {
+async function PokidexActions({ id }: { id: number }) {
+  const session = await getServerSession(authOptions);
+
   return (
     <Box padded>
-      {/* @ts-expect-error Server Component */}
-      <AddToFavourites />
+      {session ? <AddToFavourites id={id} session={session} /> : null}
       <BackLink />
     </Box>
   );

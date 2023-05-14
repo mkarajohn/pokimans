@@ -1,11 +1,12 @@
 'use client';
 
 import Box from '@/components/Box';
+import AddToFavourites from '@/components/client/AddToFavourites';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { ReactNode, useCallback, useEffect, useRef } from 'react';
 
-export default function Modal({ children }: { children: ReactNode }) {
+export default function Modal({ children, id }: { children: ReactNode; id: number }) {
   const overlay = useRef(null);
   const router = useRouter();
   const { data: session } = useSession();
@@ -55,11 +56,7 @@ export default function Modal({ children }: { children: ReactNode }) {
         {/*<div className="fixed bottom-8 right-8">{actions}</div>*/}
         <div className="fixed bottom-8 right-8">
           <Box padded>
-            {session ? (
-              <button className="action" type="button">
-                Add to favourites
-              </button>
-            ) : null}
+            {session ? <AddToFavourites session={session} id={id} /> : null}
             <button className="action" onClick={router.back}>
               Close
             </button>
